@@ -6,7 +6,7 @@ Due Monday, June 9th, 2014
 In this assignment, you will use a Java ReentrantLock and Java
 ConditionObject to implement a subset of the Java
 java.util.concurrent.Semaphore class, which we call SimpleSemaphore.
-This assignment also reuses the SimpleAtomicLock you implemented for
+This assignment also reuses the SimpleAtomicLong you implemented for
 week-2-assignment-1, so make sure it's compiling and running properly
 before attempting this assignment!
 
@@ -19,25 +19,26 @@ Palantirs if you're not yet a fan of Tolkein's Lord of the Ring's.
 The PalantirManagerUnitTest.java program creates three Palantiri and
 five Threads (one for each Palantir user) that concurrently attempt to
 acquire a Palantir and gaze into it for a certain amount of time.  If
-the SimpleSemaphore and SimpleAtomicLock are implemented properly the
+the SimpleSemaphore and SimpleAtomicLong are implemented properly the
 test should succeed without throwing any exceptions, as described
 further below.
 
 In this directory you'll find a number of files, all of which you
 should read.  However, the only two files you need to modify are
-SimpleAtomicLong.java and SimpleSemaphore.java, which contains the
-skeleton Java code that you'll implement by completing the "TODO - You
-fill in here" comments to provide a working solution.  DO NOT CHANGE
-THE OVERALL STRUCTURE OF THE SKELETON - just fill in the "TODO - You
-fill in here" portions!!!
+SimpleAtomicLong.java and SimpleSemaphore.java in the
+src/edu/vuum/mocca directory, which contains the skeleton Java code
+that you'll implement by completing the "TODO - You fill in here"
+comments to provide a working solution.  DO NOT CHANGE THE OVERALL
+STRUCTURE OF THE SKELETON - just fill in the "TODO - You fill in here"
+portions!!!
 
 In particular, you'll need to do the following:
 
 . Implement the SimpleAtomicLong class, which you should replace with
   your solution to week-2-assignment-1, after applying any fixes
   suggested by peer graders.  This class is only used by the
-  PalantirManagerUnitTest.java and should not be used by the
-  SimpleSemaphore implementation.
+  PalantirManagerUnitTest.java and should not be used in the
+  SimpleSemaphore implementation itself.
 
 . Implement the SimpleSemaphore class using a Java ConditionObject and
   Java ReentrantLock, which are covered in these videos:

@@ -21,7 +21,7 @@ import org.junit.Test;
  */
 public class PalantirManagerUnitTest {
     /**
-     * If this is set to true in then lots of debugging output will be
+     * If this is set to true then lots of debugging output will be
      * generated.
      */
     public static boolean diagnosticsEnabled = false;
