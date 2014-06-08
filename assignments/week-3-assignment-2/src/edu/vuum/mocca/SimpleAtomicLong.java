@@ -71,8 +71,7 @@ class SimpleAtomicLong
         mRWLock.writeLock().lock();
         try
         {
-        	--mValue;
-        	value = mValue;
+        	value = --mValue;
         }
         finally
         {
@@ -95,8 +94,7 @@ class SimpleAtomicLong
         mRWLock.writeLock().lock();
         try
         {
-        	value = mValue;
-        	++mValue;
+        	value = mValue++;
         }
         finally
         {
@@ -119,8 +117,7 @@ class SimpleAtomicLong
         mRWLock.writeLock().lock();
         try
         {
-        	value = mValue;
-        	--mValue;
+        	value = mValue--;
         }
         finally
         {
@@ -143,8 +140,7 @@ class SimpleAtomicLong
         mRWLock.writeLock().lock();
         try
         {
-        	++mValue;
-        	value = mValue;
+        	value = ++mValue;
         }
         finally
         {
