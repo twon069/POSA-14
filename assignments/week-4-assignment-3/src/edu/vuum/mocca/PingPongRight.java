@@ -2,6 +2,7 @@ package edu.vuum.mocca;
 
 // Import the necessary Java synchronization and scheduling classes.
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
 
 /**
  * @class PingPongRight
@@ -50,6 +51,8 @@ public class PingPongRight {
          * iteration.
          */
         // TODO - You fill in here.
+        private final String mPing = "ping!";
+        private final String mPong = "pong!";
 
         /**
          * Two SimpleSemaphores use to alternate pings and pongs.  You
@@ -57,6 +60,8 @@ public class PingPongRight {
          * two data members.
          */
         // TODO - You fill in here.
+        private final Semaphore mPingSema;
+        private final Semaphore mPongSema;
 
         /**
          * Constructor initializes the data member(s).
