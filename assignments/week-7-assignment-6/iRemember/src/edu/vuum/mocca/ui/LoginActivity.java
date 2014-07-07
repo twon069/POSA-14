@@ -26,7 +26,10 @@ public class LoginActivity extends StoryActivityBase{
 	EditText mPassword;
 	
 	// Make sure we use maximum security to store login credentials
-	static final int MAX_SECURITY = Integer.MAX_VALUE;
+	// === Explanation: removed following ambiguous variable which can cause
+	// mistake by coder to supply incorrect security arguments even though
+	// they thought they have applied "MAX_SECURITY".
+	// static final int MAX_SECURITY = Integer.MAX_VALUE;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,17 @@ public class LoginActivity extends StoryActivityBase{
 	 * Get the file used for storing login credentials
 	 */
 	public static File getLoginFile (Context context) {
+		// === Explanation: Previously it was using an incorrect Integer.MAX_VALUE
+		// variable which does not actually provide the maximum security that's
+		// implied by the variable name. Now, instead of using the error-prone variable,
+        // MAX_SECURITY, we directly use the higher security variable from StorageUtilities
+		// to ensure this method call is as clear as possible.
+		// It is possible to enhance this implementation further by utilizing enums or
+		// modify underlying method calls to explicitly allow only SECURITY_PRIVATE
+		// or SECURITY_PUBLIC implementation in StorageUtilities.getOutputMediaFile()
 		return StorageUtilities.getOutputMediaFile(context, 	// Line 48
 				StorageUtilities.MEDIA_TYPE_TEXT, 
-				MAX_SECURITY, 
+				StorageUtilities.SECURITY_PRIVATE, 
 				"login.txt");
 	}
 	
